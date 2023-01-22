@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: shivgnginx 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shivgnginx
+  template:
+    metadata:
+      labels:
+        app: shivgnginx 
+    spec:
+      containers:
+        - name: shivgnginx 
+          image: app22.azurecr.io/shivgnginx
+          ports:
+          - containerPort: 80
