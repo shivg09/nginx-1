@@ -1,0 +1,31 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: shivgnginx 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shivgnginx
+  template:
+    metadata:
+      labels:
+        app: shivgnginx 
+    spec:
+      containers:
+        - name: shivgnginx 
+          image: regacr001.azurecr.io/shivg09/nginx-1:#{Build.BuildId}#
+          ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: shivgnginx
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80 
+    selector:
+        app: shivgnginx
+
