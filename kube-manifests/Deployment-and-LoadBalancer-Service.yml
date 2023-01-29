@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: shivgnginx 
-          image: app22.azurecr.io/shivgnginx
+          image: regacr001.azurecr.io/shivg09/nginx-1:#{Build.BuildId}#
           ports:
           - containerPort: 80
 ---
