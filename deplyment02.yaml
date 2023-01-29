@@ -17,6 +17,11 @@ spec:
           image: regacr001.azurecr.io/shivg09/nginx-1:#{Build.BuildId}#
           ports:
           - containerPort: 80
+          resources:
+         limits:
+           cpu: 500m
+         requests:
+           cpu: 200m
 ---
 apiVersion: v1
 kind: Service
